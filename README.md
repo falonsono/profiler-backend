@@ -3,7 +3,7 @@
 Github Profiler API.
 
 ### Project structure
-This is our project structure
+
 ![Project Structure](img/project-structure.png)
 
 * Imports
