@@ -1,7 +1,7 @@
 module.exports = app => {
     const notes = require("../controllers/note.controller.js");
   
-    var router = require("express").Router();
+    const router = require("express").Router();
   
     // Create a new Note
     router.post("/", notes.create);

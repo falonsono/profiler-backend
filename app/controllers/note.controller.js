@@ -32,7 +32,7 @@ exports.create = (req, res) => {
 
 exports.findAll = (req, res) => {
 	const username = req.query.username;
-  var condition = username ? { username: { [Op.like]: `%${username}%` } } : null;
+  let condition = username ? { username: { [Op.like]: `%${username}%` } } : null;
 
   Note.findAll({ where: condition })
     .then(data => {
