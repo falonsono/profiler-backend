@@ -4,7 +4,6 @@ const expect = chai.expect;
 const { step } = require('mocha-steps');
 let server = require('../server');
 let chaiHttp = require('chai-http');
-let should = chai.should();
 chai.use(chaiHttp);
 
 

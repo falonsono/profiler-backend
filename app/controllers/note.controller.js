@@ -53,7 +53,7 @@ exports.findOne = (req, res) => {
     .then(data => {
       res.send(data);
     })
-    .catch(err => {
+    .catch(() => {
       res.status(500).send({
         message: "Error retrieving Note with id=" + id
       });
@@ -77,7 +77,7 @@ exports.update = (req, res) => {
         });
       }
     })
-    .catch(err => {
+    .catch(() => {
       res.status(500).send({
         message: "Error updating Note with id=" + id
       });
@@ -101,7 +101,7 @@ exports.delete = (req, res) => {
         });
       }
     })
-    .catch(err => {
+    .catch(() => {
       res.status(500).send({
         message: "Could not delete Note with id=" + id
       });
