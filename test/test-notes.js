@@ -1,5 +1,3 @@
-
-
 const chai = require('chai');
 const logger = require('mocha-logger');
 const expect = chai.expect;

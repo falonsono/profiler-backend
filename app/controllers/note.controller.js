@@ -2,9 +2,8 @@ const db = require("../models");
 const Note = db.notes;
 const Op = db.Sequelize.Op;
 
-// Create and Save a new Note
 exports.create = (req, res) => {
-	// Validate request
+	
 	console.log(req.body)
 	if (!req.body.description && !req.body.username) {
 		res.status(400).send({
@@ -13,14 +12,12 @@ exports.create = (req, res) => {
 		return;
 	}
 
-	// Create a Note
 	const note = {
 		description: req.body.description,
     username: req.body.username,
 		published: req.body.published ? req.body.published : false
 	};
 
-	// Save Note in the database
 	Note.create(note)
 		.then(data => {
 			res.send(data);
@@ -33,7 +30,6 @@ exports.create = (req, res) => {
 		});
 };
 
-// Retrieve all Notes from the database.
 exports.findAll = (req, res) => {
 	const username = req.query.username;
   var condition = username ? { username: { [Op.like]: `%${username}%` } } : null;
@@ -50,7 +46,6 @@ exports.findAll = (req, res) => {
     });
 };
 
-// Find a single Note with an id
 exports.findOne = (req, res) => {
 	const id = req.params.id;
 
@@ -65,7 +60,6 @@ exports.findOne = (req, res) => {
     });
 };
 
-// Update a Note by the id in the request
 exports.update = (req, res) => {
 	const id = req.params.id;
 
@@ -90,7 +84,6 @@ exports.update = (req, res) => {
     });
 };
 
-// Delete a Note with the specified id in the request
 exports.delete = (req, res) => {
 	const id = req.params.id;
 
@@ -115,7 +108,6 @@ exports.delete = (req, res) => {
     });
 };
 
-// Delete all Notes from the database.
 exports.deleteAll = (req, res) => {
   const username = req.params.username;
 	Note.destroy({
